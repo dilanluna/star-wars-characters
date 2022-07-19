@@ -1,1 +1,0 @@
-import{j as e,a0 as m}from"./index.0a7d5c7c.js";import{C as a}from"./chakra-ui-layout.esm.8c9b7108.js";function o(){return e(a,{py:6,maxW:{sm:"30em",md:"48em",lg:"62em",xl:"80em","2xl":"96em"},children:e(m,{})})}export{o as default};
