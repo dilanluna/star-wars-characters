@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -14,23 +14,25 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider theme={theme}>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/"
-              element={<CharactersLayout />}>
+        <Suspense>
+          <BrowserRouter>
+            <Routes>
               <Route
-                index
-                element={<CharactersPage />}
-              />
+                path="/"
+                element={<CharactersLayout />}>
+                <Route
+                  index
+                  element={<CharactersPage />}
+                />
 
-              <Route
-                path=":id"
-                element={<CharacterDetailPage />}
-              />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+                <Route
+                  path=":id"
+                  element={<CharacterDetailPage />}
+                />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </Suspense>
       </ChakraProvider>
     </QueryClientProvider>
   );
