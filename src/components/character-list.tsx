@@ -10,6 +10,7 @@ function CharacterCard({ character }: { character: Character }) {
         spacing={3}
         bg="gray.700"
         boxShadow="md"
+        role="listitem"
         borderRadius={5}
         alignItems="stretch">
         <Heading
@@ -37,6 +38,7 @@ export default function CharacterList({
 }) {
   return (
     <VStack
+      role="list"
       spacing={8}
       alignItems="stretch">
       <SimpleGrid
