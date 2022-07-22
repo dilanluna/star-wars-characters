@@ -1,6 +1,6 @@
 import { useInfiniteQuery, useQuery } from 'react-query';
 
-const baseUrl = 'https://swapi.dev/api';
+const baseUrl = import.meta.env.VITE_API_URL;
 
 export type Character = {
   name: string;
