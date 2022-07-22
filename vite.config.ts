@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import checker from 'vite-plugin-checker';
+import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,6 +11,17 @@ export default defineConfig({
     react(),
     checker({
       typescript: true,
+    }),
+    VitePWA({
+      manifest: false,
+      devOptions: {
+        enabled: true,
+      },
+      workbox: {
+        globPatterns: [
+          '**/*.{html,css,js,ico,png,jpe,jpeg,gif,svg,woff,woff2,eot,ttf,otf}',
+        ],
+      },
     }),
   ],
   test: {

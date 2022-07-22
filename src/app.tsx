@@ -3,6 +3,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import theme from './theme';
+import ReloadPrompt from './reload-prompt';
 
 const CharactersPage = lazy(() => import('./pages/characters-page'));
 const CharactersLayout = lazy(() => import('./pages/characters-layout'));
@@ -33,6 +34,8 @@ export default function App() {
             </Routes>
           </BrowserRouter>
         </Suspense>
+
+        <ReloadPrompt />
       </ChakraProvider>
     </QueryClientProvider>
   );
